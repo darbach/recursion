@@ -19,4 +19,15 @@ public class Factorials {
         ? BigInteger.ONE
         : BigInteger.valueOf(n).multiply(computeRecursive(n - 1));
   }
+
+  public static BigInteger computeIterative(int n) throws IllegalArgumentException {
+    if (n < 0) {
+      throw new IllegalArgumentException();
+    }
+    BigInteger result = BigInteger.ONE;
+    for (int i = 1; i <= n; i++) {
+      result = result.multiply(BigInteger.valueOf(i));
+    }
+    return result;
+  }
 }
