@@ -1,5 +1,7 @@
 package edu.cnm.deepdive;
 
+import java.math.BigInteger;
+
 public class Factorials {
 
   /**
@@ -9,12 +11,12 @@ public class Factorials {
    * @return The result of n!.
    * @throws IllegalArgumentException If n is less than 0.
    */
-  public static long computeRecursive(int n) throws IllegalArgumentException {
+  public static BigInteger computeRecursive(int n) throws IllegalArgumentException {
     if (n < 0) {
       throw new IllegalArgumentException();
     }
     return (n == 0)
-        ? 1
-        : n * computeRecursive(n - 1);
+        ? BigInteger.ONE
+        : BigInteger.valueOf(n).multiply(computeRecursive(n - 1));
   }
 }
