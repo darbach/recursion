@@ -1,0 +1,6 @@
+input, expected
+"radar", true
+"Radar", true
+"A man, a plan, a canal - Panama!", true
+"A man, a plan, a dam - Hoover!", false
+"aBbA", true
