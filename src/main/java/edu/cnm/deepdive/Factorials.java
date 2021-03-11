@@ -2,14 +2,18 @@ package edu.cnm.deepdive;
 
 import java.math.BigInteger;
 
+/**
+ * The Factorials class contains methods for computing the factorial value of (n!) using,
+ * recursion and iteration.
+ */
 public class Factorials {
 
   /**
-   * Compute factorial of n using recursion.
+   * Using recursion, computes the factorial function value (n!) for the provided parameter value.
    *
-   * @param n An int value of 0 or greater.
-   * @return The result of n!.
-   * @throws IllegalArgumentException If n is less than 0.
+   * @param n the factorial value to be calculated
+   * @return the result of (n!)
+   * @throws IllegalArgumentException if n is less than 0
    */
   public static BigInteger computeRecursive(int n) throws IllegalArgumentException {
     if (n < 0) {
@@ -20,6 +24,13 @@ public class Factorials {
         : BigInteger.valueOf(n).multiply(computeRecursive(n - 1));
   }
 
+  /**
+   * Using iteration, computes the factorial function value (n!) for the provided parameter value.
+   *
+   * @param n the factorial value to be calculated
+   * @return the result of (n!)
+   * @throws IllegalArgumentException if n is less than 0
+   */
   public static BigInteger computeIterative(int n) throws IllegalArgumentException {
     if (n < 0) {
       throw new IllegalArgumentException();
