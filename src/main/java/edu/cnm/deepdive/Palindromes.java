@@ -18,18 +18,9 @@ public class Palindromes {
    * @return {@code true} if string is a palindrome, {@code false} otherwise
    */
   public static boolean checkRecursive(String str) {
-    // Base case.
-    if (str.length() == 0 || str.length() == 1) {
-      return true;
-    }
-    // Compare the first and last characters.
-    String first = str.substring(0, 1);
-    String last = str.substring(str.length() - 1);
-    if (!first.equals(last)) {
-      return false;
-    }
-    // Check the middle part of the input.
-    return checkRecursive(str.substring(1, str.length() - 1));
+    return str.length() <= 1                                    // Base case.
+        || str.charAt(0) == str.charAt(str.length() - 1)        // First = last?
+        && checkRecursive(str.substring(1, str.length() - 1));  // Recursive call.
   }
 
   /**
@@ -53,15 +44,14 @@ public class Palindromes {
    * @return {@code true} if string is a palindrome, {@code false} otherwise
    */
   public static boolean checkIterative(String str) {
-    if (str.length() == 0 || str.length() == 1) {
-      return true;
-    }
     char[] strChar = str.toCharArray();
+    boolean isPalindrome = true;
     for (int i = 0, j = strChar.length - 1; i < j; i++, j--) {
       if (strChar[i] != strChar[j]) {
-        return false;
+        isPalindrome = false;
+        break;
       }
     }
-    return true;
+    return isPalindrome;
   }
 }
